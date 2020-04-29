@@ -1,1 +1,3 @@
-@import "./vendors/normalize.css";
+html {
+  background: var(--white);
+}
