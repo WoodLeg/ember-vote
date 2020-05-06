@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<form {{on "submit" (perform this.signin)}}>
+
+  <label for="email">Email</label>
+  <input name="email" type="text" oninput={{action this.updateEmail}}>
+
+  <label for="password">Password</label>
+  <input name="password" type="password" oninput={{action this.updatePassword}}>
+
+  <button type="submit">Signin</button>
+</form>
+
+<div local-class="errors">
+  {{#each this.errors as |error| }}
+    {{error.detail}}
+  {{/each}}
+</div>
