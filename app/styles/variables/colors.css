@@ -1,5 +1,10 @@
 :root {
   --white: rgba(252, 252, 252, 1);
-  --dark-purple: rgba(45, 30, 47, 1);
-  --orange: rgba(247, 179, 43);
+  --blue: rgba(92, 158, 173, 1);
+  --dark-blue: rgba(50, 98, 115, 1);
+  --light-grey: rgba(238, 238, 238, 1);
+  --orange: rgba(227, 151, 116, 1);
+  --black: rgba(10, 10, 10, 1);
+  --grey: rgba(170, 170, 170, 1);
+  --light-grey: rgba(220, 220, 220, 1);
 }

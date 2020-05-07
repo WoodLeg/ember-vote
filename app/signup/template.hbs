@@ -1,19 +1,26 @@
 <div local-class="signup">
-  Signup
+  <h1>Signup</h1>
 
-  <form {{on "submit" (perform this.signup)}}>
+  <form local-class="form" {{on "submit" (perform this.signup)}}>
 
-    <label for="email">Email</label>
-    <input name="email" type="text" onchange={{action this.updateEmail}} required>
+    <div local-class="group">
+      <label local-class="label" for="email">Email</label>
+      <input local-class="input" name="email" type="text" onchange={{action this.updateEmail}} required>
+    </div>
 
-    <label for="password">Password</label>
-    <input name="password" type="password" onchange={{action this.updatePassword}} required>
+    <div local-class="group">
+      <label local-class="label" for="password">Password</label>
+      <input local-class="input" name="password" type="password" onchange={{action this.updatePassword}} required>
+    </div>
 
-    <label for="confirm-password">Confirm password</label>
-    <input name="confirm-password" type="password" onchange={{action this.updateConfirmPassword}} required>
+    <div local-class="group">
+      <label local-class="label" for="confirm-password">Confirm password</label>
+      <input local-class="input" name="confirm-password" type="password" onchange={{action this.updateConfirmPassword}}
+        required>
+    </div>
 
 
-    <button type="submit">Signup</button>
+    <button local-class="signup-btn" type="submit">Signup</button>
   </form>
 
   <div local-class="errors">
@@ -21,4 +28,6 @@
       {{error.detail}}
     {{/each}}
   </div>
+
+  <LinkTo local-class="login-link" @route="login">Login</LinkTo>
 </div>

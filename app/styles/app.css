@@ -1,3 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   background: var(--white);
+}
+
+label {
+  margin-bottom: 4px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid var(--light-grey);
+  transition: 0.3s all ease;
+}
+
+input:focus {
+  border-color: var(--dark-blue);
 }

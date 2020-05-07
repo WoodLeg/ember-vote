@@ -1,3 +1,39 @@
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  padding: 24px 40px;
+}
+
+.group {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.label,
+.input {
+  width: 100%;
+  display: inline-block;
+}
+
+.login-button {
+  composes: btn from "../styles/helpers/btn.css";
+  margin-top: 24px;
+}
+
+.signup-link {
+  composes: link from "../styles/helpers/link.css";
+}
+
 .errors {
   color: red;
 }

@@ -1,20 +1,27 @@
-<h1>Login</h1>
+<div local-class="login">
+  <h1 local-class="title">Login</h1>
 
-<form {{on "submit" (perform this.signin)}}>
+  <form local-class="form" {{on "submit" (perform this.signin)}}>
 
-  <label for="email">Email</label>
-  <input name="email" type="text" oninput={{action this.updateEmail}} required>
+    <div local-class="group">
+      <label local-class="label" for="email">Email</label>
+      <input local-class="input" name="email" type="text" oninput={{action this.updateEmail}} required>
+    </div>
 
-  <label for="password">Password</label>
-  <input name="password" type="password" oninput={{action this.updatePassword}} required>
+    <div local-class="group">
+      <label local-class="label" for="password">Password</label>
+      <input local-class="input" name="password" type="password" oninput={{action this.updatePassword}} required>
+    </div>
 
-  <button type="submit" disabled={{this.disableSubmitBtn}}>Signin</button>
-</form>
+    <button local-class="login-button" type="submit" disabled={{this.disableSubmitBtn}}>Signin</button>
+  </form>
 
-<div local-class="errors">
-  {{#each this.errors as |error| }}
-    {{error.detail}}
-  {{/each}}
+  <div local-class="errors">
+    {{#each this.errors as |error| }}
+      {{error.detail}}
+    {{/each}}
+  </div>
+
+  <LinkTo local-class="signup-link" @route="signup">Signup</LinkTo>
+
 </div>
-
-<LinkTo @route="signup">Signup</LinkTo>
