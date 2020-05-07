@@ -4,21 +4,23 @@ import { action } from "@ember/object";
 import fetch from "fetch";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
-import { serializeAndPush } from "ember-api-actions";
 
 export default class LoginController extends Controller {
   @service session;
   @service router;
   @service store;
 
-  email = null;
-  password = null;
-
+  @tracked email = '';
+  @tracked password = '';
   @tracked errors = null;
 
   @action
   updateEmail(event) {
     this.email = event.target.value;
+  }
+
+  get disableSubmitBtn() {
+    return this.email.length <= 0 || this.password.length <= 0;
   }
 
   @action
@@ -29,21 +31,10 @@ export default class LoginController extends Controller {
   @task(function* (event) {
     event.preventDefault();
 
-    let response = yield fetch("http://localhost:4242/users/signin", {
-      method: "POST",
-      mode: "same-origin", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      // credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: this.email,
-        password: this.password,
-      }),
-    });
+    const response = yield this.session.signin(this.email, this.password);
+    const result = yield response.json()
 
-    let result = yield response.json();
+    console.log(result)
     if (result.errors) {
       this.errors = result.errors;
       return;

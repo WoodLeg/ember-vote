@@ -1,0 +1,24 @@
+<div local-class="signup">
+  Signup
+
+  <form {{on "submit" (perform this.signup)}}>
+
+    <label for="email">Email</label>
+    <input name="email" type="text" onchange={{action this.updateEmail}} required>
+
+    <label for="password">Password</label>
+    <input name="password" type="password" onchange={{action this.updatePassword}} required>
+
+    <label for="confirm-password">Confirm password</label>
+    <input name="confirm-password" type="password" onchange={{action this.updateConfirmPassword}} required>
+
+
+    <button type="submit">Signup</button>
+  </form>
+
+  <div local-class="errors">
+    {{#each this.errors as |error|}}
+      {{error.detail}}
+    {{/each}}
+  </div>
+</div>

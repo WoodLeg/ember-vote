@@ -34,4 +34,33 @@ export default class SessionService extends Service {
     this.type = null;
     this._authenticated = false;
   }
+
+  async signin(email, password) {
+    return fetch("http://localhost:4242/users/signin", {
+      method: "POST",
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+  }
+
+  async signup(email, password, confirmPassword) {
+    return fetch("http://localhost:4242/users/signup", {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        confirmPassword,
+      }),
+    });
+  }
 }

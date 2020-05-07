@@ -3,12 +3,12 @@
 <form {{on "submit" (perform this.signin)}}>
 
   <label for="email">Email</label>
-  <input name="email" type="text" oninput={{action this.updateEmail}}>
+  <input name="email" type="text" oninput={{action this.updateEmail}} required>
 
   <label for="password">Password</label>
-  <input name="password" type="password" oninput={{action this.updatePassword}}>
+  <input name="password" type="password" oninput={{action this.updatePassword}} required>
 
-  <button type="submit">Signin</button>
+  <button type="submit" disabled={{this.disableSubmitBtn}}>Signin</button>
 </form>
 
 <div local-class="errors">
@@ -16,3 +16,5 @@
     {{error.detail}}
   {{/each}}
 </div>
+
+<LinkTo @route="signup">Signup</LinkTo>
